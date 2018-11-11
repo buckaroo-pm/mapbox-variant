@@ -1,1 +1,1 @@
-targets = [ "variant" ]
+targets = [ "//:variant" ]
