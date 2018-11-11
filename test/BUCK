@@ -1,0 +1,52 @@
+prebuilt_cxx_library(
+  name = 'catch', 
+  header_namespace = '', 
+  header_only = True, 
+  exported_headers = {
+    'catch.hpp': 'include/catch.hpp', 
+  }, 
+  visibility = [
+    'PUBLIC', 
+  ], 
+)
+
+prebuilt_cxx_library(
+  name = 'auto-cpu-timer', 
+  header_namespace = '', 
+  header_only = True, 
+  exported_headers = {
+    'auto_cpu_timer.hpp': 'include/auto_cpu_timer.hpp', 
+  }, 
+)
+
+cxx_binary(
+  name = 'hashable', 
+  srcs = [
+    'hashable_test.cpp', 
+  ], 
+  deps = [
+    '//:variant', 
+  ], 
+)
+
+cxx_binary(
+  name = 'unit', 
+  srcs = [
+    'unit.cpp', 
+  ], 
+  deps = [
+    '//:variant', 
+    ':catch', 
+  ], 
+)
+
+cxx_binary(
+  name = 'unique-ptr', 
+  srcs = [
+    'unique_ptr_test.cpp', 
+  ], 
+  deps = [
+    '//:variant', 
+    ':auto-cpu-timer', 
+  ], 
+)
