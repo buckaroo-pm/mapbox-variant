@@ -10,3 +10,5 @@ mason_packages
 .buckd
 buck-out
 .buckconfig.local
+.buckconfig.d
+buckaroo_macros.bzl
